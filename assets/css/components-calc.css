@@ -1,0 +1,320 @@
+
+/* ==========================================================================
+   components-calc.css — 交通事故赔偿计算器专用组件
+   ========================================================================== */
+
+/* =========================== 分组 =========================== */
+.group {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
+.group:first-of-type { margin-top: 8px; padding-top: 0; border-top: 0; }
+.group__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 4px;
+}
+.group__title { font-size: 13.5px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+.group__hint { font-size: 11.5px; color: var(--muted-2); }
+
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+.grid2 .field { margin-top: 0; }
+.input-money--pct input { font-size: 16px; padding: 10px 0; }
+
+/* =========================== 等级 chips =========================== */
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.chip {
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--card);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: all .18s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+.chip.is-on {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--brand-glow);
+}
+
+/* =========================== Hero 里的等级徽章 =========================== */
+.result__hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.result__level {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+.result__level--none {
+  background: var(--muted-2);
+}
+.result__hero-unit {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: -6px;
+  font-weight: 600;
+}
+
+/* =========================== 赔偿清单 =========================== */
+.list { margin-top: 18px; }
+.list__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 6px;
+}
+.list__head h3 { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.list__note { font-size: 11.5px; color: var(--muted-2); }
+
+.table-wrap { margin-top: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-wrap--flush { margin-top: 0; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 300px;
+}
+.table td {
+  padding: 9px 4px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+}
+.table--list td.item-name {
+  font-size: 12.5px;
+  color: var(--ink);
+  line-height: 1.4;
+  padding-right: 8px;
+}
+.item-detail {
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted-2);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.item-key {
+  display: inline-block;
+  font-style: normal;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 5px;
+  vertical-align: 1px;
+}
+.table--list td.item-amount {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--ink);
+  width: 96px;
+}
+.table--list tr.is-zero td { color: var(--muted-2); }
+.table--list tr.is-zero td.item-amount { color: var(--muted-2); font-weight: 500; }
+.table--list tr.is-key { background: var(--accent-soft); }
+.table--list tr.is-key td { border-bottom-color: #F3E0BE; }
+.table--list tr.is-total td {
+  border-top: 2px solid var(--line-strong);
+  border-bottom: 0;
+  padding-top: 11px;
+  font-weight: 800;
+  color: var(--ink);
+  font-size: 13px;
+}
+.table--list tr.is-total td.item-amount,
+.table--list tr.is-total td:last-child {
+  font-family: var(--font-num);
+  color: var(--brand);
+  font-size: 15px;
+}
+
+/* =========================== 交强险拆分 =========================== */
+.insurance {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+.insurance__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px;
+}
+.insurance__head h3 { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.insurance__note { font-size: 11.5px; color: var(--muted-2); }
+
+.insurance__box { display: grid; gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; }
+.ins-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--card);
+  padding: 10px 12px;
+}
+.ins-row__name { font-size: 12.5px; color: var(--ink-2); }
+.ins-row__val {
+  font-family: var(--font-num);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ins-row__note {
+  background: var(--bg-2);
+  padding: 7px 12px 8px;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--muted-2);
+  margin: 0;
+}
+.ins-row.is-accent { background: var(--accent-soft); }
+.ins-row.is-accent .ins-row__val { color: #92400E; }
+.ins-row.is-total { background: var(--brand); }
+.ins-row.is-total .ins-row__name { color: rgba(255,255,255,.86); font-weight: 600; }
+.ins-row.is-total .ins-row__val { color: #fff; font-size: 16px; }
+
+/* =========================== 等级对比 =========================== */
+.compare { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--line); }
+.compare__head h3 { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cmp-card {
+  background: var(--bg-2);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  border: 1.5px solid transparent;
+}
+.cmp-card.is-best {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+}
+.cmp-card__label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.cmp-card__val {
+  font-family: var(--font-num);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+.cmp-card.is-best .cmp-card__val { color: var(--brand-strong); }
+.cmp-note {
+  margin-top: 10px;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.cmp-note b { color: var(--danger); }
+
+/* =========================== 提示 =========================== */
+.advice__text { display: block; }
+.advice__item {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  padding: 7px 0 7px 16px;
+  position: relative;
+  border-bottom: 1px dashed var(--line);
+}
+.advice__item:last-child { border-bottom: 0; }
+.advice__item::before {
+  content: '';
+  position: absolute;
+  left: 3px; top: 15px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--muted-2);
+}
+.advice__lead { font-weight: 700; color: var(--ink); }
+.advice__lead::before { background: var(--brand); width: 6px; height: 6px; }
+.advice__item--warn { background: #FEF2F2; border-radius: 8px; padding-left: 18px; color: #7F1D1D; }
+.advice__item--warn::before { background: var(--danger); }
+.advice__item--ok::before { background: #10B981; }
+.advice__item--tip::before { background: var(--accent); }
+.advice__item b { color: var(--brand); }
+.advice__item--warn b { color: var(--danger); }
+
+/* =========================== 律师咨询位 =========================== */
+.leadbox {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, #1E3A5F 0%, #2C5178 100%);
+  color: #fff;
+}
+.leadbox__title { font-size: 14px; font-weight: 800; margin-bottom: 5px; }
+.leadbox__text { font-size: 12px; color: rgba(255,255,255,.78); line-height: 1.65; margin-bottom: 12px; }
+.leadbox .btn--primary {
+  background: #fff;
+  color: #1E3A5F;
+  box-shadow: none;
+}
+.leadbox .btn--primary:hover { background: #F1F5F9; }
+
+/* =========================== 谈判要点 =========================== */
+.traps-section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 44px var(--gutter) 8px;
+}
+.section__desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: -8px 0 16px;
+}
+.table--traps th { font-size: 11.5px; }
+.table--traps td { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.table--traps td:first-child { font-family: var(--font); font-weight: 700; color: var(--ink); }
+.table--traps td:nth-child(3) { color: var(--brand); font-weight: 800; }
+.table--traps td:nth-child(4) { color: #92400E; }
+
+.nego { display: grid; gap: 12px; }
+.nego__item {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  box-shadow: var(--sh-sm);
+}
+.nego__num {
+  display: grid;
+  place-items: center;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-family: var(--font-num);
+  font-size: 13px;
+  font-weight: 800;
+}
+.nego__title { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-bottom: 5px; line-height: 1.4; }
+.nego__text { font-size: 12.5px; line-height: 1.75; color: var(--muted); }
+
+@media (max-width: 380px) {
+  .cmp-card__val { font-size: 15px; }
+  .table--list td.item-amount { width: 84px; font-size: 12px; }
+  .chip { font-size: 12px; padding: 6px 11px; }
+}
